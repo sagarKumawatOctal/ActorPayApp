@@ -19,7 +19,7 @@
         android:layout_centerHorizontal="true"
         android:textSize="22sp"
         android:textColor="@color/white"
-        android:fontFamily="@font/poppins_regular"
+        android:fontFamily="@font/poppins_semibold"
         android:text="@string/transfer_money"/>
     <TextView
         android:id="@+id/subtitle"
