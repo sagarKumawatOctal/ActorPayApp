@@ -21,13 +21,14 @@
         <entry key="..\:/ActorPayCode/app/src/main/res/drawable-hdpi/round_wallet_blue_bg.xml" value="0.1888030888030888" />
         <entry key="..\:/ActorPayCode/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.15928338762214983" />
         <entry key="..\:/ActorPayCode/app/src/main/res/drawable/ic_baseline_contact_mail_24.xml" value="0.16085526315789472" />
+        <entry key="..\:/ActorPayCode/app/src/main/res/drawable/notification_item_grey_bg.xml" value="0.22828947368421051" />
         <entry key="..\:/ActorPayCode/app/src/main/res/drawable/product_item_bg.xml" value="0.2638888888888889" />
         <entry key="..\:/ActorPayCode/app/src/main/res/drawable/round_cornor_white_bg.xml" value="0.15928338762214983" />
         <entry key="..\:/ActorPayCode/app/src/main/res/drawable/round_wallet_bg.xml" value="0.25076923076923074" />
         <entry key="..\:/ActorPayCode/app/src/main/res/layout/activity_main.xml" value="0.17890625" />
         <entry key="..\:/ActorPayCode/app/src/main/res/layout/activity_splash_screen.xml" value="0.1506578947368421" />
         <entry key="..\:/ActorPayCode/app/src/main/res/layout/common_toolbar.xml" value="0.152" />
-        <entry key="..\:/ActorPayCode/app/src/main/res/layout/fragment_misc.xml" value="0.1506578947368421" />
+        <entry key="..\:/ActorPayCode/app/src/main/res/layout/fragment_misc.xml" value="0.25" />
         <entry key="..\:/ActorPayCode/app/src/main/res/layout/fragment_notification.xml" value="0.2180921052631579" />
         <entry key="..\:/ActorPayCode/app/src/main/res/layout/fragment_products_list.xml" value="0.258984375" />
         <entry key="..\:/ActorPayCode/app/src/main/res/layout/fragment_transfer_money.xml" value="0.17481884057971014" />
