@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewGroup.MarginLayoutParams
+import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
@@ -51,48 +53,36 @@ class LoginFragment : Fragment() {
     }
 
     fun init() {
-        binding.apply {
+
             binding.apply {
                 val viewPagerAdapter = activity?.let { ViewPagerAdapter(it.supportFragmentManager) }
                 viewPager.adapter = viewPagerAdapter
+                tabs.setupWithViewPager(viewPager)
+
                 val params =
-                    RelativeLayout.LayoutParams(
+                    LinearLayout.LayoutParams(
                         ViewPager.LayoutParams.WRAP_CONTENT,
                         ViewPager.LayoutParams.WRAP_CONTENT
                     )
 
-//setting margins around imageimageview
-
-//setting margins around imageimageview
-
-
                 viewPager.addOnPageChangeListener(object : OnPageChangeListener {
                     override fun onPageScrollStateChanged(state: Int) {
-                        when (state) {
-
-                        }
                     }
-
                     override fun onPageScrolled(
                         position: Int,
                         positionOffset: Float,
                         positionOffsetPixels: Int
                     ) {
                     }
-
                     override fun onPageSelected(position: Int) {
                         when (position) {
                             0 -> {
-                                params.height = 300
-                                rlHolder.layoutParams = params
-                                viewPager.layoutParams = params
-                                scrollable.requestLayout();
+                                params.height = 800
+                                headerLinearLayout.layoutParams = params
                             }
                             1 -> {
-                                params.height = 700
-                                rlHolder.layoutParams = params
-                                viewPager.layoutParams = params
-                                scrollable.requestLayout();
+                                params.height = 1700
+                                headerLinearLayout.layoutParams = params
 
                             }
                         }
@@ -100,6 +90,6 @@ class LoginFragment : Fragment() {
                 })
             }
 
-        }
+
     }
 }

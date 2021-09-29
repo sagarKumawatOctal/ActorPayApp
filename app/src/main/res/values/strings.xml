@@ -25,6 +25,7 @@
     <string name="faq">FAQ</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="user_type">User Type</string>
+    <string name="redeem">Redeem</string>
 
     <string name="not_connected_internet">Not connected to Internet</string>
     <string name="logout">Logout</string>
