@@ -4,6 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_nav_graph"
     app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.octal.actorpay.ui.dashboard.home.HomeFragment"
+        android:label="@string/home"
+        tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/transferMoneyFragment"
         android:name="com.octal.actorpay.TransferMoneyFragment"
@@ -32,8 +38,19 @@
         android:label="@string/my_order"
         tools:layout="@layout/fragment_my_order_list" />
     <fragment
+        android:id="@+id/rewardsFragment"
+        android:name="com.octal.actorpay.rewards_points.RewardsPointsFragment"
+        android:label="@string/rewards"
+        tools:layout="@layout/fragment_rewards_points" />
+    <fragment
+        android:id="@+id/walletFragment"
+        android:name="com.octal.actorpay.WalletStatementFragment"
+        android:label="@string/wallet_statement"
+        tools:layout="@layout/fragment_walletw_statement" />
+    <fragment
         android:id="@+id/miscFragment"
         android:name="com.octal.actorpay.MiscFragment"
         android:label="@string/misc"
         tools:layout="@layout/fragment_misc" />
+
 </navigation>

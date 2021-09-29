@@ -14,21 +14,12 @@ import androidx.viewpager.widget.ViewPager
 import com.octal.actorpay.R
 import com.octal.actorpay.databinding.FragmentLoginBinding
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
+import com.octal.actorpay.databinding.FragmentRewardsPointsBinding
 
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [LoginFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class RewardsPointsFragment : Fragment() {
 
-    private var _binding: FragmentLoginBinding? = null
+    private var _binding: FragmentRewardsPointsBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -40,7 +31,7 @@ class RewardsPointsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        _binding = FragmentRewardsPointsBinding.inflate(inflater, container, false)
         val root: View = binding.root
         init()
 
