@@ -58,4 +58,9 @@
         <item name="boxStrokeColor">#fff</item>
         <item name="boxStrokeWidth">0dp</item>
     </style>
+
+    <style name="MineCustomTabText" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">25sp</item>
+        <item name="fontFamily">@font/poppins_regular</item>
+    </style>
 </resources>

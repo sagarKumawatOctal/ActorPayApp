@@ -1,57 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollable"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/scrollable"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".auth.LoginFragment">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
+        android:orientation="vertical"
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/logo"
             android:layout_width="@dimen/_100sdp"
             android:layout_height="@dimen/_100sdp"
-            android:layout_centerHorizontal="true"
+            android:layout_gravity="center|top"
             android:layout_marginTop="@dimen/_20sdp"
-            android:src="@drawable/logo"/>
+            android:src="@drawable/logo" />
 
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tab_item"
-            android:layout_below="@id/logo"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:layout_gravity="bottom"
-            android:fillViewport="true"
-            app:tabIndicatorColor="@color/text_color"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs"
+            style="@style/MineCustomTabText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/pink_color"
+            android:backgroundTint="@color/white"
+            app:tabIndicatorColor="#0077B6"
+            android:layout_gravity="center"
+            app:tabIconTintMode="multiply"
+            app:tabIndicatorHeight="@dimen/_2sdp"
             app:tabMode="fixed"
-            app:tabSelectedTextColor="@android:color/holo_blue_dark"
-            app:tabTextColor="@android:color/darker_gray" />
-
-        <RelativeLayout
-            android:id="@+id/rl_holder"
+            app:tabIndicatorFullWidth="false"
+            app:tabGravity="fill"
+            app:tabMinWidth="@dimen/_200sdp"
+            app:tabSelectedTextColor="#0077B6"
+            app:tabTextColor="@color/black" />
+        <LinearLayout
+            android:id="@+id/header_LinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tab_item"
-            android:orientation="vertical"
-            android:fitsSystemWindows="true"
-            android:minHeight="@dimen/_300sdp">
+            android:layout_below="@id/tabs"
+            android:minHeight="300dp">
 
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/view_pager"
                 android:layout_width="match_parent"
-                android:layout_height="fill_parent" />
-        </RelativeLayout>
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/rl_holder"
+            android:layout_below="@id/header_LinearLayout"
             android:orientation="vertical">
 
             <LinearLayout
@@ -160,8 +164,7 @@
         </LinearLayout>
 
 
-    </RelativeLayout>
+    </LinearLayout>
 
 
-
-</ScrollView>
+</androidx.core.widget.NestedScrollView>
