@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_nav_graph"
     app:startDestination="@id/productListFragment">
+    app:startDestination="@id/loginFragment">
     <fragment
         android:id="@+id/transferMoneyFragment"
         android:name="com.octal.actorpay.TransferMoneyFragment"
@@ -14,4 +15,15 @@
         android:name="com.octal.actorpay.ProductsListFragment"
         android:label="@string/product_list"
         tools:layout="@layout/fragment_products_list" />
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.octal.actorpay.auth.LoginFragment"
+        android:label="@string/login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/myOrderFragment"
+        android:name="com.octal.actorpay.MyOrdersListFragment"
+        android:label="@string/my_order"
+        tools:layout="@layout/fragment_my_order_list" />
 </navigation>

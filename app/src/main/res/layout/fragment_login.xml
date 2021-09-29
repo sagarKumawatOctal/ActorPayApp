@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".auth.LoginFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/logo"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:src="@drawable/logo"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tab_item"
+            android:layout_below="@id/logo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_gravity="bottom"
+            android:fillViewport="true"
+            app:tabIndicatorColor="@color/text_color"
+            app:tabMode="fixed"
+
+            app:tabSelectedTextColor="@android:color/holo_blue_dark"
+            app:tabTextColor="@android:color/darker_gray" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tab_item"/>
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:orientation="vertical"
+           android:layout_marginBottom="@dimen/_50sdp"
+           android:layout_below="@id/view_pager"
+           android:layout_alignParentBottom="true">
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="@dimen/_20sdp"
+               android:layout_marginTop="@dimen/_30sdp"
+               android:layout_marginEnd="@dimen/_20sdp">
+
+               <View
+                   android:layout_width="0dp"
+                   android:layout_height="1dp"
+                   android:layout_weight="1"
+                   android:layout_gravity="center"
+                   android:background="@color/very_light_grey" />
+
+               <androidx.appcompat.widget.AppCompatTextView
+                   android:id="@+id/txtOR2"
+                   android:layout_width="30dp"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center"
+                   android:gravity="center"
+                   android:text="@string/or"
+                   android:textColor="@color/light_grey"
+                   android:textSize="@dimen/_10sdp"
+                   android:visibility="visible" />
+               <View
+                   android:layout_width="0dp"
+                   android:layout_height="1dp"
+                   android:layout_weight="1"
+                   android:layout_gravity="center"
+                   android:background="@color/very_light_grey" />
+
+           </LinearLayout>
+
+           <LinearLayout
+               android:id="@+id/linearLayout"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginLeft="@dimen/_20sdp"
+               android:layout_marginTop="56dp"
+               android:layout_marginRight="@dimen/_20sdp"
+               android:orientation="vertical">
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginStart="@dimen/_10sdp"
+                   android:layout_marginTop="@dimen/_8sdp"
+                   android:layout_marginEnd="@dimen/_10sdp"
+                   android:gravity="center">
+
+                   <ImageView
+                       android:id="@+id/imGoogle"
+                       android:layout_width="@dimen/_70sdp"
+                       android:layout_height="@dimen/_35sdp"
+                       android:layout_gravity="center"
+                       android:layout_marginStart="@dimen/_5sdp"
+                       android:layout_marginEnd="@dimen/_5sdp"
+                       android:background="@drawable/fb_bg"
+                       android:padding="@dimen/_10sdp"
+                       android:src="@drawable/facebook" />
+
+                   <ImageView
+                       android:id="@+id/imFacebook"
+                       android:layout_width="@dimen/_70sdp"
+                       android:layout_height="@dimen/_35sdp"
+                       android:layout_gravity="center"
+                       android:layout_marginStart="@dimen/_5sdp"
+                       android:layout_marginEnd="@dimen/_5sdp"
+                       android:background="@drawable/twitter_bg"
+                       android:padding="@dimen/_10sdp"
+                       android:src="@drawable/twitter" />
+
+                   <androidx.cardview.widget.CardView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content" />
+
+                   <ImageView
+                       android:id="@+id/imTwitter"
+                       android:layout_width="@dimen/_70sdp"
+                       android:layout_height="@dimen/_35sdp"
+                       android:layout_gravity="center"
+                       android:layout_marginStart="@dimen/_5sdp"
+                       android:layout_marginEnd="@dimen/_5sdp"
+                       android:background="@drawable/edittext_bg"
+                       android:padding="@dimen/_10sdp"
+                       android:src="@drawable/google" />
+
+               </LinearLayout>
+
+           </LinearLayout>
+
+           <androidx.appcompat.widget.AppCompatTextView
+               android:id="@+id/txtViewSignUp"
+               style="@style/SemiBoldTextView"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_gravity="center"
+               android:layout_marginTop="24dp"
+               android:text="Don't have an account? Sign up"
+               android:textColor="@color/light_grey"
+               android:layout_marginBottom="@dimen/_20sdp"
+               android:textSize="@dimen/_11sdp" />
+       </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+
+</ScrollView>
