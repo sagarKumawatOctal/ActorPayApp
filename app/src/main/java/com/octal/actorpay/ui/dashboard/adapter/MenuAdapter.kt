@@ -58,7 +58,7 @@ class MenuAdapter : BaseAdapter  {
             (((optionView.getChildAt(0) as RelativeLayout).getChildAt(1) as RelativeLayout).getChildAt(
                 1
             ) as TextView).setTextColor(
-                Color.parseColor("#e73147")
+                Color.parseColor("#8E8D8D")
             )
         // Using the DuoOptionView's default selectors
         optionView.bind(option.mTitle, option.mDrawable)
