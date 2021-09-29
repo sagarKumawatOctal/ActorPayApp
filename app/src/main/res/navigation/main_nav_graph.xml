@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_nav_graph"
-    app:startDestination="@id/productListFragment">
+    app:startDestination="@id/miscFragment">
     <fragment
         android:id="@+id/transferMoneyFragment"
         android:name="com.octal.actorpay.TransferMoneyFragment"
@@ -31,4 +31,9 @@
         android:name="com.octal.actorpay.MyOrdersListFragment"
         android:label="@string/my_order"
         tools:layout="@layout/fragment_my_order_list" />
+    <fragment
+        android:id="@+id/miscFragment"
+        android:name="com.octal.actorpay.MiscFragment"
+        android:label="@string/misc"
+        tools:layout="@layout/fragment_misc" />
 </navigation>

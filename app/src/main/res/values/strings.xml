@@ -21,4 +21,7 @@
     <string name="or">or</string>
     <string name="notification">Notification</string>
     <string name="about_us">About Us</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="faq">FAQ</string>
+    <string name="privacy_policy">Privacy Policy</string>
 </resources>
