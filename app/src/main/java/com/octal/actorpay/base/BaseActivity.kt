@@ -19,9 +19,6 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         window.statusBarColor = this.resources.getColor(R.color.primary)
-
-
-
     }
 
     fun showCustomToast(msg: String) {
