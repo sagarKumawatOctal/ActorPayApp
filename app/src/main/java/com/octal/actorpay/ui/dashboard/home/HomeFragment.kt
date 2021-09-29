@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.octal.actorpay.NavController
 import com.octal.actorpay.R
-import com.octal.actorpay.base.BaseFragment
 import com.octal.actorpay.ui.dashboard.adapter.MenuAdapter
 import com.octal.actorpay.ui.dashboard.models.DrawerItems
 import nl.psdcompany.duonavigationdrawer.views.DuoDrawerLayout
@@ -19,18 +19,12 @@ import nl.psdcompany.duonavigationdrawer.views.DuoMenuView
 import nl.psdcompany.duonavigationdrawer.widgets.DuoDrawerToggle
 
 
-class HomeFragment : BaseFragment(), DuoMenuView.OnMenuClickListener,
+class HomeFragment : Fragment(), DuoMenuView.OnMenuClickListener,
     AdapterView.OnItemSelectedListener {
     private var mTitles = ArrayList<DrawerItems>()
     private var mViewHolder: ViewHolder? = null
     private var mMenuAdapter: MenuAdapter? = null
-    private val mNavControler: NavController? = null
     private lateinit var rootView: View
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -44,23 +38,22 @@ class HomeFragment : BaseFragment(), DuoMenuView.OnMenuClickListener,
 
     private fun setBottomNavigationView() {
         val bottomnav: BottomNavigationView
-        bottomnav = requireView().findViewById(R.id.bottomNavigationView)
-        /* replaceFragment(HomeFragment(),null)*/
-        //findNavController(R.id.home_fragment)
-        bottomnav.setOnNavigationItemSelectedListener {
-            when (it.itemId) {
+        bottomnav = rootView.findViewById(R.id.bottomNavigationView)
+        //NavController().navigateWithId(R.id.homeFragment, findNavController())
+        bottomnav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
                 R.id.home_fragment -> {
-                    Navigation.findNavController(requireActivity(), R.id.home_fragment)
+                    NavController().navigateWithId(R.id.homeFragment, findNavController())
                 }
                 R.id.history_fragment -> {
-                    Navigation.findNavController(requireActivity(), R.id.home_fragment)
+                    NavController().navigateWithId(R.id.homeFragment, findNavController())
                 }
                 R.id.wallet_fragment -> {
-                    Navigation.findNavController(requireActivity(), R.id.home_fragment)
+                    NavController().navigateWithId(R.id.walletFragment, findNavController())
                 }
-                R.id.profile_fragment -> Navigation.findNavController(
-                    requireActivity(),
-                    R.id.home_fragment
+                R.id.profile_fragment -> NavController().navigateWithId(
+                    R.id.homeFragment,
+                    findNavController()
                 )
             }
             true
@@ -68,13 +61,13 @@ class HomeFragment : BaseFragment(), DuoMenuView.OnMenuClickListener,
     }
 
     private inner class ViewHolder internal constructor() {
-        val mDuoDrawerLayout: DuoDrawerLayout = view!!.findViewById(R.id.drawer)
+        val mDuoDrawerLayout: DuoDrawerLayout = rootView.findViewById(R.id.drawer)
         val mDuoMenuView: DuoMenuView
         val mToolbar: Toolbar
 
         init {
             mDuoMenuView = mDuoDrawerLayout.menuView as DuoMenuView
-            mToolbar = view!!.findViewById(R.id.toolbar)
+            mToolbar = rootView.findViewById(R.id.toolbar)
 
         }
     }
@@ -191,18 +184,18 @@ class HomeFragment : BaseFragment(), DuoMenuView.OnMenuClickListener,
 
             }
             1 -> {
-                showCustomToast("screen")
+                //showCustomToast("screen")
                 /* val intent = Intent(applicationContext, Profile::class.java)
                  startActivity(intent)*/
             }
             2 -> {
-                showCustomToast("screen")
+                //showCustomToast("screen")
                 /*val intent = Intent(applicationContext, Wallet::class.java)
                 startActivity(intent)*/
 
             }
             3 -> {
-                showCustomToast("screen")
+                //showCustomToast("screen")
                 /*val intent = Intent(applicationContext, Refer_and_Earn::class.java)
                 startActivity(intent)*/
             }
@@ -226,11 +219,9 @@ class HomeFragment : BaseFragment(), DuoMenuView.OnMenuClickListener,
     }
 
     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-        TODO("Not yet implemented")
     }
 
     override fun onNothingSelected(p0: AdapterView<*>?) {
-        TODO("Not yet implemented")
     }
 
 }
