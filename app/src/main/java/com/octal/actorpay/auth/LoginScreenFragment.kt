@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import com.octal.actorpay.R
 import com.octal.actorpay.databinding.FragmentLoginBinding
+import com.octal.actorpay.databinding.LoginScreenFragmentBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,9 +21,9 @@ private const val ARG_PARAM2 = "param2"
  * Use the [LoginFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class LoginScreenFragmentFragment : Fragment() {
+class LoginScreenFragment : Fragment() {
 
-    private var _binding: FragmentLoginBinding? = null
+    private var _binding: LoginScreenFragmentBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -35,7 +36,7 @@ class LoginScreenFragmentFragment : Fragment() {
     ): View? {
 
 
-        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        _binding = LoginScreenFragmentBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
 

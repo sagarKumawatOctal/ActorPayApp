@@ -11,7 +11,7 @@ class ViewPagerAdapter internal constructor(fm: FragmentManager) : FragmentPager
     override fun getItem(position: Int): Fragment {
         var fragment: Fragment? = null
         when (position) {
-            0 -> fragment = LoginScreenFragmentFragment()
+            0 -> fragment = LoginScreenFragment()
             1 -> fragment = SignUpScreenFragment()
         }
 

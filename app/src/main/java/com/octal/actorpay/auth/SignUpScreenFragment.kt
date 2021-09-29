@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import com.octal.actorpay.R
 import com.octal.actorpay.databinding.FragmentLoginBinding
+import com.octal.actorpay.databinding.SignUpScreenFragmentBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,7 +23,7 @@ private const val ARG_PARAM2 = "param2"
  */
 class SignUpScreenFragment : Fragment() {
 
-    private var _binding: FragmentLoginBinding? = null
+    private var _binding: SignUpScreenFragmentBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -35,7 +36,7 @@ class SignUpScreenFragment : Fragment() {
     ): View? {
 
 
-        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        _binding = SignUpScreenFragmentBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
 
