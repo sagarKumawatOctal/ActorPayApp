@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.octal.actorpay.NavController
 import com.octal.actorpay.R
 import com.octal.actorpay.databinding.FragmentLoginBinding
 import com.octal.actorpay.databinding.SignUpScreenFragmentBinding
@@ -39,12 +41,20 @@ class SignUpScreenFragment : Fragment() {
         _binding = SignUpScreenFragmentBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-
+        init()
         return root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    fun init() {
+        binding.apply {
+            buttonSignUp.setOnClickListener {
+                NavController().navigateWithId(R.id.homeFragment, findNavController())
+            }
+        }
     }
 }

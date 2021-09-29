@@ -9,6 +9,7 @@
         <entry key="..\:/ActorPayApp/app/src/main/res/drawable/my_oder_status_bg.xml" value="0.36512820512820515" />
         <entry key="..\:/ActorPayApp/app/src/main/res/drawable/twitter_bg.xml" value="0.36512820512820515" />
         <entry key="..\:/ActorPayApp/app/src/main/res/layout/common_toolbar.xml" value="0.3416666666666667" />
+        <entry key="..\:/ActorPayApp/app/src/main/res/layout/fragment_home.xml" value="0.12083333333333333" />
         <entry key="..\:/ActorPayApp/app/src/main/res/layout/fragment_login.xml" value="0.3546875" />
         <entry key="..\:/ActorPayApp/app/src/main/res/layout/fragment_misc.xml" value="0.3546875" />
         <entry key="..\:/ActorPayApp/app/src/main/res/layout/fragment_my_order_list.xml" value="0.3546875" />
@@ -18,6 +19,7 @@
         <entry key="..\:/ActorPayApp/app/src/main/res/layout/login_screen_fragment.xml" value="0.3546875" />
         <entry key="..\:/ActorPayApp/app/src/main/res/layout/my_oders.xml" value="0.3472222222222222" />
         <entry key="..\:/ActorPayApp/app/src/main/res/layout/wallet_itme.xml" value="0.3546875" />
+        <entry key="..\:/ActorPayApp/app/src/main/res/menu/demo_menu.xml" value="0.19739583333333333" />
         <entry key="..\:/ActorPayCode/app/src/main/res/drawable-hdpi/round_wallet_blue_bg.xml" value="0.1888030888030888" />
         <entry key="..\:/ActorPayCode/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.15928338762214983" />
         <entry key="..\:/ActorPayCode/app/src/main/res/drawable/ic_baseline_contact_mail_24.xml" value="0.16085526315789472" />
