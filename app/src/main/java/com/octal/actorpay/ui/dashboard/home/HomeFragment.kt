@@ -9,10 +9,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.octal.actorpay.NavController
 import com.octal.actorpay.R
+import com.octal.actorpay.databinding.FragmentHomeBinding
+import com.octal.actorpay.ui.dashboard.adapter.FeaturesAdapter
 import com.octal.actorpay.ui.dashboard.adapter.MenuAdapter
+import com.octal.actorpay.ui.dashboard.adapter.TransactionAdapter
 import com.octal.actorpay.ui.dashboard.models.DrawerItems
 import nl.psdcompany.duonavigationdrawer.views.DuoDrawerLayout
 import nl.psdcompany.duonavigationdrawer.views.DuoMenuView
@@ -25,22 +29,51 @@ class HomeFragment : Fragment(), DuoMenuView.OnMenuClickListener,
     private var mViewHolder: ViewHolder? = null
     private var mMenuAdapter: MenuAdapter? = null
     private lateinit var rootView: View
+    private var _binding: FragmentHomeBinding? = null
+    private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        rootView = inflater.inflate(R.layout.fragment_home, container, false)
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        val root: View = binding.root
+        //rootView = inflater.inflate(R.layout.fragment_home, container, false)
         initiliation()
         setBottomNavigationView()
-        return rootView
+        features()
+        gettransaction()
+        return root
+    }
+
+    private fun gettransaction() {
+        binding.layoutMainID.rvtransactionID.apply {
+            var arraylist: ArrayList<String> = arrayListOf("AddMoney", "AddMoney", "AddMoney")
+            adapter = TransactionAdapter(arraylist, requireActivity())
+            layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
+
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    private fun features() {
+        binding.layoutMainID.rvItemsID.apply {
+            var arraylist: ArrayList<String> = arrayListOf("AddMoney", "AddMoney", "AddMoney")
+            adapter = FeaturesAdapter(arraylist, requireActivity())
+            layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
+
+        }
+
     }
 
     private fun setBottomNavigationView() {
-        val bottomnav: BottomNavigationView
-        bottomnav = rootView.findViewById(R.id.bottomNavigationView)
-        //NavController().navigateWithId(R.id.homeFragment, findNavController())
-        bottomnav.setOnItemSelectedListener { item ->
+        /*val bottomnav: BottomNavigationView
+        bottomnav = rootView.findViewById(R.id.bottomNavigationView)*/
+        binding.layoutMainID.bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home_fragment -> {
                     NavController().navigateWithId(R.id.homeFragment, findNavController())
@@ -61,13 +94,13 @@ class HomeFragment : Fragment(), DuoMenuView.OnMenuClickListener,
     }
 
     private inner class ViewHolder internal constructor() {
-        val mDuoDrawerLayout: DuoDrawerLayout = rootView.findViewById(R.id.drawer)
+        val mDuoDrawerLayout: DuoDrawerLayout = binding.drawer
         val mDuoMenuView: DuoMenuView
         val mToolbar: Toolbar
 
         init {
             mDuoMenuView = mDuoDrawerLayout.menuView as DuoMenuView
-            mToolbar = rootView.findViewById(R.id.toolbar)
+            mToolbar = binding.toolbarLayout.toolbar
 
         }
     }
