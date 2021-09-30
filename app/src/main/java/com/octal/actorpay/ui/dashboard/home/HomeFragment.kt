@@ -8,19 +8,24 @@ import android.widget.AdapterView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.octal.actorpay.NavController
 import com.octal.actorpay.R
 import com.octal.actorpay.databinding.FragmentHomeBinding
 import com.octal.actorpay.ui.dashboard.adapter.FeaturesAdapter
 import com.octal.actorpay.ui.dashboard.adapter.MenuAdapter
-import com.octal.actorpay.ui.dashboard.adapter.TransactionAdapter
+import com.octal.actorpay.ui.dashboard.bottomnavfragments.HistoryBottomFragment
+import com.octal.actorpay.ui.dashboard.bottomnavfragments.HomeBottomFragment
+import com.octal.actorpay.ui.dashboard.bottomnavfragments.ProfileBottomFragment
+import com.octal.actorpay.ui.dashboard.bottomnavfragments.WalletBottomFragment
 import com.octal.actorpay.ui.dashboard.models.DrawerItems
 import nl.psdcompany.duonavigationdrawer.views.DuoDrawerLayout
 import nl.psdcompany.duonavigationdrawer.views.DuoMenuView
 import nl.psdcompany.duonavigationdrawer.widgets.DuoDrawerToggle
+import java.util.*
+import kotlin.collections.ArrayList
+
+
+
 
 
 class HomeFragment : Fragment(), DuoMenuView.OnMenuClickListener,
@@ -31,6 +36,7 @@ class HomeFragment : Fragment(), DuoMenuView.OnMenuClickListener,
     private lateinit var rootView: View
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+    private val backStack = Stack<Int>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,21 +45,18 @@ class HomeFragment : Fragment(), DuoMenuView.OnMenuClickListener,
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
         //rootView = inflater.inflate(R.layout.fragment_home, container, false)
+        /*if (savedInstanceState == null) {
+            val fragment = HomeBottomFragment()
+            requireActivity().supportFragmentManager.beginTransaction().replace(R.id.container, fragment, fragment.javaClass.getSimpleName())
+                .commit()
+        }*/
+        loadFragment(HomeBottomFragment())
         initiliation()
         setBottomNavigationView()
         features()
-        gettransaction()
         return root
     }
 
-    private fun gettransaction() {
-        binding.layoutMainID.rvtransactionID.apply {
-            var arraylist: ArrayList<String> = arrayListOf("AddMoney", "AddMoney", "AddMoney")
-            adapter = TransactionAdapter(arraylist, requireActivity())
-            layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
-
-        }
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()
@@ -64,7 +67,7 @@ class HomeFragment : Fragment(), DuoMenuView.OnMenuClickListener,
         binding.layoutMainID.rvItemsID.apply {
             var arraylist: ArrayList<String> = arrayListOf("AddMoney", "AddMoney", "AddMoney")
             adapter = FeaturesAdapter(arraylist, requireActivity())
-            layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
+            layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
 
         }
 
@@ -76,18 +79,35 @@ class HomeFragment : Fragment(), DuoMenuView.OnMenuClickListener,
         binding.layoutMainID.bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home_fragment -> {
-                    NavController().navigateWithId(R.id.homeFragment, findNavController())
+                    val fragment = HomeBottomFragment()
+                    requireActivity().supportFragmentManager.beginTransaction()
+                        .replace(R.id.framelayout, fragment, fragment.javaClass.getSimpleName())
+                        .commit()
+
                 }
                 R.id.history_fragment -> {
-                    NavController().navigateWithId(R.id.homeFragment, findNavController())
+                    //NavController().navigateWithId(R.id.homeFragment, findNavController())
+                    val fragment = HistoryBottomFragment()
+                    requireActivity().supportFragmentManager.beginTransaction()
+                        .replace(R.id.framelayout, fragment, fragment.javaClass.getSimpleName())
+                        .commit()
                 }
                 R.id.wallet_fragment -> {
-                    NavController().navigateWithId(R.id.walletFragment, findNavController())
+                    //
+                    val fragment = WalletBottomFragment()
+                    requireActivity().supportFragmentManager.beginTransaction()
+                        .replace(R.id.framelayout, fragment, fragment.javaClass.getSimpleName())
+                        .commit()
                 }
-                R.id.profile_fragment -> NavController().navigateWithId(
-                    R.id.homeFragment,
-                    findNavController()
-                )
+                R.id.profile_fragment ->{ val fragment = ProfileBottomFragment()
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .replace(R.id.framelayout, fragment, fragment.javaClass.getSimpleName())
+                    .commit()
+
+                }
+                else ->{
+                    loadFragment(HomeBottomFragment())
+                }
             }
             true
         }
@@ -257,4 +277,16 @@ class HomeFragment : Fragment(), DuoMenuView.OnMenuClickListener,
     override fun onNothingSelected(p0: AdapterView<*>?) {
     }
 
+
+    private fun loadFragment(fragment: Fragment?): Boolean {
+        //switching fragment
+        if (fragment != null) {
+            requireActivity().supportFragmentManager
+                .beginTransaction()
+                .replace(com.octal.actorpay.R.id.framelayout, fragment)
+                .commit()
+            return true
+        }
+        return false
+    }
 }
