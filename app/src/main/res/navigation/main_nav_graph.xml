@@ -9,7 +9,12 @@
         android:id="@+id/homeFragment"
         android:name="com.octal.actorpay.ui.dashboard.home.HomeFragment"
         android:label="@string/home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_transferMoneyFragment"
+            app:destination="@id/transferMoneyFragment"
+            app:popUpTo="@id/homeFragment"/>
+    </fragment>
     <fragment
         android:id="@+id/transferMoneyFragment"
         android:name="com.octal.actorpay.TransferMoneyFragment"

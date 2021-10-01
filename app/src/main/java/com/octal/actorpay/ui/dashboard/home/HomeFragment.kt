@@ -8,9 +8,12 @@ import android.widget.AdapterView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.octal.actorpay.NavController
 import com.octal.actorpay.R
 import com.octal.actorpay.databinding.FragmentHomeBinding
+import com.octal.actorpay.ui.dashboard.`interface`.ItemListenr
 import com.octal.actorpay.ui.dashboard.adapter.FeaturesAdapter
 import com.octal.actorpay.ui.dashboard.adapter.MenuAdapter
 import com.octal.actorpay.ui.dashboard.bottomnavfragments.HistoryBottomFragment
@@ -25,11 +28,8 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 
-
-
-
 class HomeFragment : Fragment(), DuoMenuView.OnMenuClickListener,
-    AdapterView.OnItemSelectedListener {
+    AdapterView.OnItemSelectedListener, ItemListenr {
     private var mTitles = ArrayList<DrawerItems>()
     private var mViewHolder: ViewHolder? = null
     private var mMenuAdapter: MenuAdapter? = null
@@ -65,8 +65,16 @@ class HomeFragment : Fragment(), DuoMenuView.OnMenuClickListener,
 
     private fun features() {
         binding.layoutMainID.rvItemsID.apply {
-            var arraylist: ArrayList<String> = arrayListOf("AddMoney", "AddMoney", "AddMoney")
-            adapter = FeaturesAdapter(arraylist, requireActivity())
+            var arraylist: ArrayList<String> =
+                arrayListOf(
+                    "Add Money",
+                    "Send Money",
+                    "Mobile & DTH",
+                    "Utility Bill",
+                    "Online Payment",
+                    "Product List"
+                )
+            adapter = FeaturesAdapter(arraylist, requireActivity(), this@HomeFragment)
             layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
 
         }
@@ -99,13 +107,14 @@ class HomeFragment : Fragment(), DuoMenuView.OnMenuClickListener,
                         .replace(R.id.framelayout, fragment, fragment.javaClass.getSimpleName())
                         .commit()
                 }
-                R.id.profile_fragment ->{ val fragment = ProfileBottomFragment()
-                requireActivity().supportFragmentManager.beginTransaction()
-                    .replace(R.id.framelayout, fragment, fragment.javaClass.getSimpleName())
-                    .commit()
+                R.id.profile_fragment -> {
+                    val fragment = ProfileBottomFragment()
+                    requireActivity().supportFragmentManager.beginTransaction()
+                        .replace(R.id.framelayout, fragment, fragment.javaClass.getSimpleName())
+                        .commit()
 
                 }
-                else ->{
+                else -> {
                     loadFragment(HomeBottomFragment())
                 }
             }
@@ -222,7 +231,6 @@ class HomeFragment : Fragment(), DuoMenuView.OnMenuClickListener,
         requireActivity().title = mTitles[position].mTitle
         // Set the right options selected
         mMenuAdapter?.setViewSelected(position, true)
-
         // Navigate to the right fragment
         when (position) {
             /*0 -> {
@@ -245,6 +253,7 @@ class HomeFragment : Fragment(), DuoMenuView.OnMenuClickListener,
                 //showCustomToast("screen")
                 /*val intent = Intent(applicationContext, Wallet::class.java)
                 startActivity(intent)*/
+                NavController().navigateWithId(R.id.productListFragment, findNavController())
 
             }
             3 -> {
@@ -257,7 +266,7 @@ class HomeFragment : Fragment(), DuoMenuView.OnMenuClickListener,
                 startActivity(intent)*/
             }
             5 -> {
-                //startActivity(Intent(this, NotificationActivity::class.java))
+                NavController().navigateWithId(R.id.miscFragment, findNavController())
             }
             6 -> {
                 //startActivity(Intent(applicationContext, MoreActivity::class.java))
@@ -288,5 +297,34 @@ class HomeFragment : Fragment(), DuoMenuView.OnMenuClickListener,
             return true
         }
         return false
+    }
+
+    override fun on_ItemClickListner(position: Int, mList: List<String>) {
+        when (mList[position]) {
+            "Add Money" -> {
+                NavController().navigateWithId(R.id.transferMoneyFragment, findNavController())
+              /*  NavController().navigateWithIdBack(
+                    R.id.transferMoneyFragment,
+                    findNavController(),
+                    R.id.action_homeFragment_to_transferMoneyFragment
+                )*/
+            }
+            "Send Money" -> {
+                NavController().navigateWithId(R.id.walletFragment, findNavController())
+            }
+            "Mobile & DTH" -> {
+                NavController().navigateWithId(R.id.transferMoneyFragment, findNavController())
+            }
+            "Utility Bill" -> {
+                NavController().navigateWithId(R.id.transferMoneyFragment, findNavController())
+            }
+            "Online Payment" -> {
+                NavController().navigateWithId(R.id.transferMoneyFragment, findNavController())
+            }
+            "Product List" -> {
+                NavController().navigateWithId(R.id.productListFragment, findNavController())
+            }
+
+        }
     }
 }

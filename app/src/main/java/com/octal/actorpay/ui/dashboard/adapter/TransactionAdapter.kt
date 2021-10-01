@@ -29,6 +29,6 @@ class TransactionAdapter(private var mList: List<String>,
     }
 
     override fun getItemCount(): Int {
-        return 3
+        return 4
     }
 }

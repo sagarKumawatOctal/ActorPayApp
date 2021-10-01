@@ -50,7 +50,7 @@
             android:singleLine="true"
             android:text="Amount Received By Bank"
             android:textColor="#383838"
-            android:textSize="16sp"
+            android:textSize="13sp"
             tools:ignore="RtlSymmetry" />
 
         <TextView
