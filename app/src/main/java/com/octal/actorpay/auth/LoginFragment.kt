@@ -16,18 +16,7 @@ import com.octal.actorpay.databinding.FragmentLoginBinding
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [LoginFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class LoginFragment : Fragment() {
-
     private var _binding: FragmentLoginBinding? = null
 
     // This property is only valid between onCreateView and
@@ -53,7 +42,6 @@ class LoginFragment : Fragment() {
     }
 
     fun init() {
-
             binding.apply {
                 val viewPagerAdapter = activity?.let { ViewPagerAdapter(it.supportFragmentManager) }
                 viewPager.adapter = viewPagerAdapter
