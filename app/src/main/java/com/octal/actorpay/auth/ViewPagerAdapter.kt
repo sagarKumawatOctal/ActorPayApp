@@ -3,8 +3,12 @@ package com.octal.actorpay.auth
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import androidx.viewpager.widget.PagerAdapter
+import org.jetbrains.annotations.NotNull
+import viewpagerwc.ui.dom.wrapping.WrappingFragmentPagerAdapter
 
-class ViewPagerAdapter internal constructor(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+
+class ViewPagerAdapter internal constructor(fm: FragmentManager) : WrappingFragmentPagerAdapter(fm) {
 
     private val COUNT = 2
     val tab = arrayOf("Login", "Signup")
@@ -20,6 +24,9 @@ class ViewPagerAdapter internal constructor(fm: FragmentManager) : FragmentPager
 
     override fun getCount(): Int {
         return COUNT
+    }
+    override fun getItemPosition(`object`: Any): Int {
+        return POSITION_NONE
     }
 
     override fun getPageTitle(position: Int): CharSequence? {

@@ -52,7 +52,7 @@ class LoginScreenFragment : Fragment() {
     fun init(){
         binding.apply {
             buttonLogin.setOnClickListener {
-                NavController().navigateWithId(R.id.homeFragment,findNavController())
+                NavController().navigateWithId(R.id.transferMoneyFragment,findNavController())
             }
         }
     }
