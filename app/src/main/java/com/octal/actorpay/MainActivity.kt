@@ -22,6 +22,7 @@ class MainActivity : BaseActivity() {
         }
         return navController!!.navigateUp()
     }
+
     override fun onBackPressed() {
         when (navController!!.currentDestination?.id) {
             R.id.homeFragment -> {
@@ -34,7 +35,7 @@ class MainActivity : BaseActivity() {
         }
         // super.onBackPressed()
     }
-
+}
 /*
 
     override fun onBackPressed() {
