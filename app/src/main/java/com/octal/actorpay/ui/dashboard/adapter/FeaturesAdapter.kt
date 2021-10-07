@@ -3,10 +3,7 @@ package com.octal.actorpay.ui.dashboard.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.octal.actorpay.NavController
-import com.octal.actorpay.R
 import com.octal.actorpay.databinding.ItemFeaturesBinding
 import com.octal.actorpay.ui.dashboard.`interface`.ItemListenr
 
@@ -25,7 +22,7 @@ class FeaturesAdapter(
     override fun onBindViewHolder(holder: FeaturesAdapter.ViewHolder, position: Int) {
         holder.binding.txtTitleID.setText(mList[position])
         holder.binding.itemsLayoutID.setOnClickListener {
-            listner.on_ItemClickListner(position,mList)
+            listner.on_ItemClickListner(position,mList,it)
 
         }
     }

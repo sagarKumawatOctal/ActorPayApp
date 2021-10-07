@@ -55,6 +55,7 @@ class LoginScreenFragment : Fragment() {
             buttonLogin.setOnClickListener {
                 //NavController().navigateWithId(R.id.homeFragment,findNavController())
                 Navigation.findNavController(root).navigate(R.id.action_loginFragment_to_homeFragment)
+
             }
         }
     }

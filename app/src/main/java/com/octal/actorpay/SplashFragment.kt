@@ -13,9 +13,7 @@ import com.octal.actorpay.databinding.FragmentSplashBinding
 class SplashFragment : Fragment() {
     private var _binding: FragmentSplashBinding? = null
     private val binding get() = _binding!!
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,7 +24,9 @@ class SplashFragment : Fragment() {
         val root: View = binding.root
 
         Handler().postDelayed(Runnable {
+
             Navigation.findNavController(root).navigate(R.id.action_splashFragment_to_loginFragment)
+
         }, 2000)
         return root
     }

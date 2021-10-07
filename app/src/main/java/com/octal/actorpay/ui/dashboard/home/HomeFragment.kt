@@ -8,6 +8,7 @@ import android.widget.AdapterView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.octal.actorpay.NavController
@@ -44,12 +45,8 @@ class HomeFragment : Fragment(), DuoMenuView.OnMenuClickListener,
         // Inflate the layout for this fragment
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        //rootView = inflater.inflate(R.layout.fragment_home, container, false)
-        /*if (savedInstanceState == null) {
-            val fragment = HomeBottomFragment()
-            requireActivity().supportFragmentManager.beginTransaction().replace(R.id.container, fragment, fragment.javaClass.getSimpleName())
-                .commit()
-        }*/
+
+
         loadFragment(HomeBottomFragment())
         initiliation()
         setBottomNavigationView()
@@ -190,7 +187,6 @@ class HomeFragment : Fragment(), DuoMenuView.OnMenuClickListener,
 
     private fun actionView() {
 
-
     }
 
     private fun handleToolbar() {
@@ -299,10 +295,11 @@ class HomeFragment : Fragment(), DuoMenuView.OnMenuClickListener,
         return false
     }
 
-    override fun on_ItemClickListner(position: Int, mList: List<String>) {
+    override fun on_ItemClickListner(position: Int, mList: List<String>, view: View) {
         when (mList[position]) {
             "Add Money" -> {
-                NavController().navigateWithId(R.id.transferMoneyFragment, findNavController())
+                //Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_homeFragment)
+                //NavController().navigateWithId(R.id.transferMoneyFragment, findNavController())
               /*  NavController().navigateWithIdBack(
                     R.id.transferMoneyFragment,
                     findNavController(),
@@ -310,19 +307,24 @@ class HomeFragment : Fragment(), DuoMenuView.OnMenuClickListener,
                 )*/
             }
             "Send Money" -> {
-                NavController().navigateWithId(R.id.walletFragment, findNavController())
+                //NavController().navigateWithId(R.id.walletFragment, findNavController())
+                Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_walletFragment)
             }
             "Mobile & DTH" -> {
-                NavController().navigateWithId(R.id.transferMoneyFragment, findNavController())
+                //NavController().navigateWithId(R.id.transferMoneyFragment, findNavController())
+                Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_walletFragment)
             }
             "Utility Bill" -> {
-                NavController().navigateWithId(R.id.transferMoneyFragment, findNavController())
+                //NavController().navigateWithId(R.id.transferMoneyFragment, findNavController())
+               // Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_transferMoneyFragment)
             }
             "Online Payment" -> {
-                NavController().navigateWithId(R.id.transferMoneyFragment, findNavController())
+                //NavController().navigateWithId(R.id.action_homeFragment_to_transferMoneyFragment, findNavController())
+               // Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_transferMoneyFragment)
             }
             "Product List" -> {
-                NavController().navigateWithId(R.id.productListFragment, findNavController())
+                //NavController().navigateWithId(R.id.productListFragment, findNavController())
+               // Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_productListFragment)
             }
 
         }

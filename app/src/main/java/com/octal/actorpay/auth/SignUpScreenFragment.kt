@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.octal.actorpay.NavController
 import com.octal.actorpay.R
@@ -53,7 +54,8 @@ class SignUpScreenFragment : Fragment() {
     fun init() {
         binding.apply {
             buttonSignUp.setOnClickListener {
-                NavController().navigateWithId(R.id.homeFragment, findNavController())
+                //NavController().navigateWithId(R.id.homeFragment, findNavController())
+                Navigation.findNavController(root).navigate(R.id.action_loginFragment_to_homeFragment)
             }
         }
     }
