@@ -65,13 +65,16 @@ class LoginFragment : Fragment() {
                     override fun onPageSelected(position: Int) {
                         when (position) {
                             0 -> {
-                                params.height = 800
-                                headerLinearLayout.layoutParams = params
+                              //  params.height = 800
+                               // headerLinearLayout.layoutParams = params
+                                viewPager.invalidate();
+                                viewPagerAdapter?.notifyDataSetChanged()
                             }
                             1 -> {
-                                params.height = 1700
-                                headerLinearLayout.layoutParams = params
-
+                             //   params.height = 1700
+                             //   headerLinearLayout.layoutParams = params
+                                viewPager.invalidate();
+                                viewPagerAdapter?.notifyDataSetChanged()
                             }
                         }
                     }

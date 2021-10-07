@@ -19,4 +19,5 @@ class TransferMoneyFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_transfer_money, container, false)
     }
 
+
 }
